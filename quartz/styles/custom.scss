@@ -1,6 +1,8 @@
 ﻿@use "./variables.scss" as *;
 
-.page-content img[alt="Lindson Amorim"] {
+// Avatar on the home page
+.page-content img[alt="Lindson Amorim"],
+article img[alt="Lindson Amorim"] {
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -8,4 +10,193 @@
   border: 1px solid var(--lightgray);
   margin: 0 0 0.75rem;
   display: block;
+}
+
+// ---------------------------------------------------------------------------
+// Mobile polish (Quartz breakpoint: 800px)
+// ---------------------------------------------------------------------------
+@media all and ($mobile) {
+  html {
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  .page {
+    max-width: 100%;
+  }
+
+  .page > #quartz-body {
+    padding: 0 1rem 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  // Header / left sidebar chrome
+  .page > #quartz-body .sidebar.left {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem 0.75rem;
+    padding: 1rem 0 0.75rem;
+    row-gap: 0.75rem;
+  }
+
+  .page > #quartz-body .sidebar.left > .page-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.25;
+  }
+
+  .page > #quartz-body .sidebar.left > .page-title a {
+    overflow-wrap: anywhere;
+  }
+
+  // "Posts recentes" and desktop explorer title clutter the phone chrome
+  .page > #quartz-body .sidebar.left > .recent-notes {
+    display: none;
+  }
+
+  .page > #quartz-body .sidebar.left .desktop-explorer {
+    display: none;
+  }
+
+  .page > #quartz-body .sidebar.left .explorer {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  .page > #quartz-body .sidebar.left .explorer-toggle.mobile-explorer {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Toolbar: search + dark mode + reader
+  .page > #quartz-body .sidebar.left > .flex-component {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.35rem !important;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .search-button,
+  .darkmode,
+  .readermode {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .search-button {
+    width: 100%;
+    justify-content: flex-start;
+    padding-inline: 0.65rem;
+  }
+
+  .search-button p {
+    font-size: 0.9rem;
+  }
+
+  // Page header + article
+  .page > #quartz-body .page-header {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .page article > h1,
+  .article-title {
+    font-size: 1.55rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .page article {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .page article p,
+  .page article li,
+  .page article a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .page article img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .page-content img[alt="Lindson Amorim"],
+  article img[alt="Lindson Amorim"] {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0.5rem;
+  }
+
+  .page article h2 {
+    font-size: 1.25rem;
+  }
+
+  .page article h3 {
+    font-size: 1.1rem;
+  }
+
+  .content-meta {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+  }
+
+  // Right sidebar (graph / backlinks / etc.)
+  .page > #quartz-body .sidebar.right {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem 0 1rem;
+    max-width: 100%;
+  }
+
+  .page > #quartz-body .sidebar.right > * {
+    flex: 1 1 auto;
+    max-width: 100%;
+    max-height: 18rem;
+  }
+
+  // Footer
+  .page > #quartz-body footer,
+  footer {
+    padding: 1rem 0 2rem;
+  }
+
+  footer ul,
+  footer .links,
+  .page-footer {
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+
+  footer a {
+    overflow-wrap: anywhere;
+  }
+
+  // Code blocks shouldn't force page width
+  pre,
+  pre > code {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
 }
